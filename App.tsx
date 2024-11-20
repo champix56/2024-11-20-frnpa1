@@ -25,7 +25,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import Cmp from './Cmp';
+
  
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
