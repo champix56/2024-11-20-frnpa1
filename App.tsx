@@ -8,14 +8,14 @@
 import React from 'react';
 import {
   SafeAreaView,
-   
+
   StyleSheet,
-  
+
   Text,
-  
+
   useColorScheme,
   View,
- 
+
 } from 'react-native';
 
 import {
@@ -27,7 +27,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import Button from './src/components/ui/Button/Button';
 
- 
+
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -37,14 +37,16 @@ function App(): React.JSX.Element {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-        <View>
-          <Text style={{color:'red', backgroundColor:'blue'}}>Demat Breizh</Text>
-          <Button text="klhn" />
-        </View>
+      <View>
+        <Text style={{ color: 'red', backgroundColor: 'blue' }}>Demat Breizh</Text>
+        <Button>
+          <Text>Mon button</Text> 
+        </Button>
+      </View>
     </SafeAreaView>
   );
 }
- 
+
 
 const styles = StyleSheet.create({});
 

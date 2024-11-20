@@ -6,7 +6,7 @@ function Button(props) {
  
     return (
         <TouchableOpacity>
-            <Text>{props.text}</Text>
+           {props.children}
         </TouchableOpacity>
     );
 }
