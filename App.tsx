@@ -25,6 +25,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import Button from './src/components/ui/Button/Button';
 
  
 function App(): React.JSX.Element {
@@ -38,6 +39,7 @@ function App(): React.JSX.Element {
     <SafeAreaView style={backgroundStyle}>
         <View>
           <Text style={{color:'red', backgroundColor:'blue'}}>Demat Breizh</Text>
+          <Button  />
         </View>
     </SafeAreaView>
   );
