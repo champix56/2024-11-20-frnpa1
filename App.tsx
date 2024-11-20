@@ -21,12 +21,13 @@ import {
 import {
   Colors,
   DebugInstructions,
-  Header,
+
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import Button from './src/components/ui/Button/Button';
-
+import Header from "./src/components/ui/Header/Header";
+import { logoImg } from './assert/datauri/logo';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -37,6 +38,7 @@ function App(): React.JSX.Element {
 
   return (
     <SafeAreaView style={backgroundStyle}>
+      <Header imageUri={logoImg} text='Orsys'/>
       <View>
         <Text style={{ color: 'red', backgroundColor: 'blue' }}>Demat Breizh</Text>
         <Button style={{paddingVertical:5}}>
