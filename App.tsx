@@ -39,7 +39,7 @@ function App(): React.JSX.Element {
     <SafeAreaView style={backgroundStyle}>
       <View>
         <Text style={{ color: 'red', backgroundColor: 'blue' }}>Demat Breizh</Text>
-        <Button>
+        <Button style={{paddingVertical:5}}>
           <Text>Mon button</Text> 
         </Button>
       </View>
