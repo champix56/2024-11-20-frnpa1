@@ -15,6 +15,19 @@ const ressources = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder.addCase(
+      'current/save/fulfilled',
+      (oldState, action: {type: any; payload: IProduct}) => {
+        const position = oldState.products.findIndex(
+          item => item.id === action.payload.id,
+        );
+        if (position >= 0) {
+          oldState.products[position] = action.payload;
+        } else {
+          oldState.products.push(action.payload);
+        }
+      },
+    );
+    builder.addCase(
       loadRessources.fulfilled,
       (
         oldState: IRessourcesSliceState,
