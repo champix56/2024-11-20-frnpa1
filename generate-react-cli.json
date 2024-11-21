@@ -1,0 +1,48 @@
+{
+  "usesTypeScript": true,
+  "usesStyledComponents": false,
+  "usesCssModule": true,
+  "cssPreprocessor": "css",
+  "testLibrary": "Testing Library",
+  "component": {
+    "default": {
+      "path": "src/components",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": false,
+      "withLazy": true,
+      "customTemplates":{
+        "component":"grcTemplates/functionComponent/TemplateName.tsx",
+        "style":"grcTemplates/TemplateName.styles.tsx",
+        "test":"grcTemplates/TemplateName.test.tsx",
+        "lazy":"grcTemplates/readme.md"
+      }
+    },  
+    "ui": {
+      "path": "src/components/ui",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": false,
+      "withLazy": true,
+      "customTemplates":{
+        "component":"grcTemplates/functionComponent/TemplateName.tsx",
+        "style":"grcTemplates/TemplateName.styles.tsx",
+        "test":"grcTemplates/TemplateName.test.tsx",
+        "lazy":"grcTemplates/readme.md"
+      }
+    },  
+    "layout": {
+      "path": "src/components/layout",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": false,
+      "withLazy": true,
+      "customTemplates":{
+        "component":"grcTemplates/layoutFunctionComponent/TemplateName.tsx",
+        "style":"grcTemplates/TemplateName.styles.tsx",
+        "test":"grcTemplates/TemplateName.test.tsx",
+        "lazy":"grcTemplates/readme.md"
+      }
+    }
+  }
+}
