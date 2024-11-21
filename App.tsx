@@ -9,6 +9,7 @@ import React from 'react';
 import {
   Alert,
   SafeAreaView,
+  ScrollView,
   StyleSheet,
   Text,
   useColorScheme,
@@ -16,10 +17,13 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import Button from './src/components/ui/Button/Button';
 import Header from './src/components/ui/Header/Header';
 import {logoImg} from './assert/datauri/logo';
 import {products} from './db.json';
+import Recherche from './src/components/ui/Recherche/Recherche';
+import ScrollableProducts from './src/components/layout/ScrollableProducts/ScrollableProducts';
+import ListProducts from './src/components/ui/ListProducts/ListProducts';
+import {IProduct} from './src/interfaces/IProduct';
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -30,32 +34,15 @@ function App(): React.JSX.Element {
   return (
     <SafeAreaView style={backgroundStyle}>
       <Header imageUri={logoImg} text="Orsys" />
-      <View>
-        <Text style={{color: 'red', backgroundColor: 'blue'}}>
-          Demat Breizh
-        </Text>
-        <Button
-          style={{paddingVertical: 5}}
-          onPress={() => {
-            Alert.alert(
-              'boutton clicked',
-              "button dans l'app cliqué par l'utilisateur",
-            );
-          }}>
-          <Text>Mon button</Text>
-        </Button>
-        <Button
-          style={{paddingVertical: 5}}
-          onPress={() => {
-            Alert.alert(
-              'boutton clicked',
-              "button dans l'app cliqué par l'utilisateur",
-            );
-          }}>
-          <Text>Mon button</Text>
-          <Text>Mon button</Text>
-        </Button>
-      </View>
+      <Recherche />
+      <ScrollableProducts>
+        {/* <View key={"t"}>
+          <Text>Resultats :</Text>
+        </View> */}
+        {products.map((item: IProduct, position) => (
+          <ListProducts produit={item} key={'produit-' + position} />
+        ))}
+      </ScrollableProducts>
     </SafeAreaView>
   );
 }
