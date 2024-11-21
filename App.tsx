@@ -5,7 +5,7 @@
  * @format
  */
 
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Alert,
   SafeAreaView,
@@ -19,18 +19,25 @@ import {
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Header from './src/components/ui/Header/Header';
 import {logoImg} from './assert/datauri/logo';
-import {products} from './db.json';
+
 import Recherche from './src/components/ui/Recherche/Recherche';
 import ScrollableProducts from './src/components/layout/ScrollableProducts/ScrollableProducts';
 import ListProducts from './src/components/ui/ListProducts/ListProducts';
 import {IProduct} from './src/interfaces/IProduct';
+
+const productsInitialState:Array<IProduct>=[];
+
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-  const [findValue, setfindValue] = useState('coca');
+  const [findValue, setfindValue] = useState('');
+  const [products, setproducts] = useState(productsInitialState);
+  useEffect(() => {
+     fetch('http://localhost:5679/products').then(r=>r.json()).then(array=>setproducts(array));
+  }, []);
 
   return (
     <SafeAreaView style={backgroundStyle}>
