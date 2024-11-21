@@ -3,16 +3,19 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
+    "android": "npm run adb-revers & react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "genericComponent":"npx generate-react-cli c",
-    "uiComponent":"npx generate-react-cli c --type=ui",
-    "layoutComponent":"npx generate-react-cli c --type=layout"
+    "genericComponent": "npx generate-react-cli c",
+    "uiComponent": "npx generate-react-cli c --type=ui",
+    "layoutComponent": "npx generate-react-cli c --type=layout",
+    "json":"json-server -p 5679 --host 0.0.0.0 db.json",
+    "adb-reverse":"adb reverse tcp:5679 tcp:5679"
   },
   "dependencies": {
+    "json-server": "0.17.4",
     "react": "18.3.1",
     "react-native": "0.76.2"
   },
