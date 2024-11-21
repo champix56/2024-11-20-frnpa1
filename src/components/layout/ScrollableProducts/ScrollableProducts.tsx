@@ -1,4 +1,4 @@
-import {View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import React from 'react';
 import styles from './ScrollableProducts.styles';
 
@@ -8,9 +8,9 @@ interface IScrollableProductsProps {
 
 const ScrollableProducts: React.FC<IScrollableProductsProps> = props => {
   return (
-    <View style={styles.ScrollableProducts}>
+    <ScrollView style={styles.ScrollableProducts}>
       {props.children}
-    </View>
+    </ScrollView>
   );
 };
 
