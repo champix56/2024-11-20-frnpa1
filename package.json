@@ -7,7 +7,10 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "genericComponent":"npx generate-react-cli c",
+    "uiComponent":"npx generate-react-cli c --type=ui",
+    "layoutComponent":"npx generate-react-cli c --type=layout"
   },
   "dependencies": {
     "react": "18.3.1",
