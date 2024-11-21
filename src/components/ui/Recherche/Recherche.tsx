@@ -1,22 +1,27 @@
-import {View, Text, TextInput} from 'react-native';
-import React, {useState} from 'react';
+import {View, Text, TextInput, Alert} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import styles from './Recherche.styles';
 
-interface IRechercheProps {}
+interface IRechercheProps {
+  value: string;
+  onFindValueChange: Function;
+}
 
 const Recherche: React.FC<IRechercheProps> = props => {
-  const [inputValue, setInputValue] = useState('');
+  // useEffect(() => {
+  //    //Alert.alert('Nouvelle lettre saisie', inputValue);
+  // },[inputValue]);
   return (
     <View style={styles.Recherche}>
       <TextInput
         placeholder="Saisie de recheche"
         onChangeText={t => {
-          setInputValue(t);
-          console.log(t);
+          props.onFindValueChange(t);
         }}
+        value={props.value}
       />
       <Text style={{backgroundColor: 'skyblue', color: 'tomato'}}>
-        {inputValue}
+        {props.value}
       </Text>
     </View>
   );
