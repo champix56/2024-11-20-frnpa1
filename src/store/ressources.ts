@@ -31,7 +31,7 @@ const ressources = createSlice({
     filterProducts(s, a: {type: string; payload: string}) {
       s.searchValue = a.payload;
       s.filtredProducts = s.products.filter(p =>
-        p.name.toLowerCase().startsWith(a.payload.toLowerCase()),
+        p.name.toLowerCase().includes(a.payload.toLowerCase()),
       );
     },
   },
