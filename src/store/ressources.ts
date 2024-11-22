@@ -1,11 +1,15 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {IProduct} from '../interfaces/IProduct';
-import {products} from '../../db.json'
+import {products} from '../../db.json';
 interface IRessourcesState {
   products: Array<IProduct>;
+  searchValue: string;
+  filtredProducts: Array<IProduct>;
 }
 const initialState: IRessourcesState = {
   products: products,
+  searchValue: '',
+  filtredProducts: products,
 };
 
 const ressources = createSlice({
@@ -13,17 +17,22 @@ const ressources = createSlice({
   initialState,
   reducers: {
     addProduct(s, a: {type: string; payload: IProduct}) {
-        const position=s.products.findIndex(p=>p.id===a.payload.id);
-        if(position===-1){
-            s.products.push(a.payload);
-        }
-        else{
-            s.products[position]=a.payload;
-        }
+      const position = s.products.findIndex(p => p.id === a.payload.id);
+      if (position === -1) {
+        s.products.push(a.payload);
+      } else {
+        s.products[position] = a.payload;
+      }
     },
     fillProducts(s, a: {type: string; payload: Array<IProduct>}) {
-        s.products.splice(0);
-        s.products.push(...a.payload);
+      s.products.splice(0);
+      s.products.push(...a.payload);
+    },
+    filterProducts(s, a: {type: string; payload: string}) {
+      s.searchValue = a.payload;
+      s.filtredProducts = s.products.filter(p =>
+        p.name.toLowerCase().startsWith(a.payload.toLowerCase()),
+      );
     },
   },
 });
