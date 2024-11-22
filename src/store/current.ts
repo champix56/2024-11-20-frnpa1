@@ -1,29 +1,35 @@
+import {createSlice} from '@reduxjs/toolkit';
 import {IProduct} from '../interfaces/IProduct';
 
 const initialState: IProduct = {
   description: '',
   name: '',
-  image: '',
   prix: 0,
-  id: undefined,
   stock: 0,
+  image: '',
+  id: undefined,
 };
 
-const reducer = (
-  state = initialState,
-  action: {type: string; payload: any},
-) => {
-  switch (action.type) {
-    case 'current/update':
-      return {...state, ...action.payload};
-    case 'current/clear':
-      return {...initialState};
-    default:
-      return state;
-  }
-};
+const current = createSlice({
+  name: 'current',
+  initialState,
+  reducers: {
+    update(
+      oldState,
+      action: {
+        payload: IProduct;
+        type: string;
+      },
+    ) {
+      Object.assign(oldState, action.payload);
+    },
+    clear(oldState) {
+      Object.assign(oldState, initialState);
+    },
+  },
+});
 
-export const update=(obj:any)=>{
-  return {type:'current/update',payload:obj};
-}
-export default reducer;
+export const {clear,update} = current.actions;
+
+const currentReducer= current.reducer;
+export default currentReducer;
