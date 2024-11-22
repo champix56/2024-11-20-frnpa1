@@ -23,3 +23,4 @@ store.subscribe(() => {
 //   }),
 // );
 export default store;
+export type TStoreState = ReturnType<typeof store.getState>;
