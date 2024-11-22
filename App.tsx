@@ -25,6 +25,7 @@ import ScrollableProducts from './src/components/layout/ScrollableProducts/Scrol
 import ListProducts from './src/components/ui/ListProducts/ListProducts';
 import {IProduct} from './src/interfaces/IProduct';
 
+import {store} from './src/store/store';
 const productsInitialState:Array<IProduct>=[];
 
 function App(): React.JSX.Element {
@@ -37,6 +38,7 @@ function App(): React.JSX.Element {
   const [products, setproducts] = useState(productsInitialState);
   useEffect(() => {
      fetch('http://localhost:5679/products').then(r=>r.json()).then(array=>setproducts(array));
+     console.log(store);
   }, []);
 
   return (
