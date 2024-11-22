@@ -1,9 +1,10 @@
-import {View, Text, TextInput, Alert} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React from 'react';
+import {View, TextInput} from 'react-native';
 import styles from './Recherche.styles';
 
 interface IRechercheProps {
   value: string;
+
   onFindValueChange: Function;
 }
 
@@ -20,9 +21,6 @@ const Recherche: React.FC<IRechercheProps> = props => {
         }}
         value={props.value}
       />
-      <Text style={{backgroundColor: 'skyblue', color: 'tomato'}}>
-        {props.value}
-      </Text>
     </View>
   );
 };

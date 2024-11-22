@@ -1,18 +1,30 @@
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {IProduct} from '../interfaces/IProduct';
 import {RESSOURCES, REST_ADRESSE} from '../config/restServeur';
+import ProductDetailViewer from '../components/ui/ProductDetailViewer/ProductDetailViewer';
 export interface IRessourcesSliceState {
   products: Array<IProduct>;
+  filterProductValue: string;
+  filtredProductList: Array<IProduct>;
 }
 
 const initialState: IRessourcesSliceState = {
   products: [],
+  filterProductValue: '',
+  filtredProductList: [],
 };
 
 const ressources = createSlice({
   name: 'ressources',
   initialState,
-  reducers: {},
+  reducers: {
+    filterProductList: (s, a) => {
+      s.filterProductValue = a.payload;
+      s.filtredProductList = s.products.filter(p =>
+        p.name.toLowerCase().includes(a.payload.toLowerCase()),
+      );
+    },
+  },
   extraReducers: builder => {
     builder.addCase(
       'current/save/fulfilled',
@@ -55,6 +67,6 @@ export const loadRessources = createAsyncThunk('ressources/load', async () => {
   return await pr.json();
 });
 
-//export const {} = ressources.actions;
+export const {filterProductList} = ressources.actions;
 
 export default ressources.reducer;
