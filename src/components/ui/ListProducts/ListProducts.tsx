@@ -12,7 +12,7 @@ const ListProducts: React.FC<IListProductsProps> = props => {
   return (
     <TouchableHighlight
       style={styles.ListProducts}
-      onPress={() => props.onProductPressed(props.produit.id)}>
+      onPress={() => props.onProductPressed(props.produit)}>
       <Text style={{fontSize: 25}}>
         {props.produit.id}:{props.produit.name}
       </Text>
