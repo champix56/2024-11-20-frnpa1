@@ -37,7 +37,7 @@ const ressources = createSlice({
   },
 });
 
-export const {addProduct, fillProducts} = ressources.actions;
+export const {addProduct, fillProducts, filterProducts} = ressources.actions;
 
 const ressourcesReducer = ressources.reducer;
 export default ressourcesReducer;
