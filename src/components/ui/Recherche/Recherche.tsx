@@ -5,14 +5,12 @@ import styles from './Recherche.styles';
 interface IRechercheProps {
   value: string;
   onFindValueChange: Function;
+  style?:object;
 }
 
 const Recherche: React.FC<IRechercheProps> = props => {
-  // useEffect(() => {
-  //    //Alert.alert('Nouvelle lettre saisie', inputValue);
-  // },[inputValue]);
   return (
-    <View style={styles.Recherche}>
+    <View style={{...styles.Recherche, ...props.style}}>
       <TextInput
         placeholder="Saisie de recheche"
         onChangeText={t => {
@@ -20,9 +18,6 @@ const Recherche: React.FC<IRechercheProps> = props => {
         }}
         value={props.value}
       />
-      <Text style={{backgroundColor: 'skyblue', color: 'tomato'}}>
-        {props.value}
-      </Text>
     </View>
   );
 };
