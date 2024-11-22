@@ -11,10 +11,11 @@
     "genericComponent": "npx generate-react-cli c",
     "uiComponent": "npx generate-react-cli c --type=ui",
     "layoutComponent": "npx generate-react-cli c --type=layout",
-    "json":"json-server -p 5679 --host 0.0.0.0 db.json",
-    "adb-reverse":"adb reverse tcp:5679 tcp:5679"
+    "json": "json-server -p 5679 --host 0.0.0.0 db.json",
+    "adb-reverse": "adb reverse tcp:5679 tcp:5679"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.3.0",
     "json-server": "0.17.4",
     "react": "18.3.1",
     "react-native": "0.76.2"
